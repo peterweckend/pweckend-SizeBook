@@ -22,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
-            android:id="@+id/name_field_addnew" />
+            android:id="@+id/name_field_addnew"
+            android:hint="Name" />
 
         <EditText
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:inputType="date"
             android:ems="10"
             android:id="@+id/date_field_addnew"
-            android:text="Date" />
+            android:hint="Date" />
 
         <EditText
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/neck_field_addnew"
-            android:text="Neck" />
+            android:hint="Neck" />
 
         <EditText
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/bust_field_addnew"
-            android:text="Bust" />
+            android:hint="Bust" />
 
         <EditText
             android:layout_width="match_parent"
@@ -56,7 +56,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/chest_field_addnew"
-            android:text="Chest" />
+            android:hint="Chest" />
 
         <EditText
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/waist_field_addnew"
-            android:text="Waist" />
+            android:hint="Waist" />
 
         <EditText
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/hip_field_addnew"
-            android:text="Hip" />
+            android:hint="Hip" />
 
         <EditText
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/inseam_field_addnew"
-            android:text="Inseam" />
+            android:hint="Inseam" />
 
         <EditText
             android:layout_width="match_parent"
@@ -88,8 +88,8 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/comment_field_addnew"
-            android:text="Comments"
-            android:layout_weight="0.40" />
+            android:layout_weight="0.87"
+            android:hint="Comments" />
 
         <Button
             android:text="Submit"

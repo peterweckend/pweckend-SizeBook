@@ -18,7 +18,27 @@ import java.io.ObjectOutputStream;
 public class PersonListManager {
     static final String prefFile = "PersonList";
     static final String plKey = "personList";
+
     Context context;
+
+    static private PersonListManager personListManager = null;
+
+    public static void initManager(Context context) {
+        if (personListManager == null) {
+            if (context == null) {
+                throw new RuntimeException("missing context for PersonListManager");
+            }
+            personListManager = new PersonListManager(context);
+        }
+    }
+
+
+    public static PersonListManager getManager() {
+        if (personListManager == null) {
+            throw new RuntimeException("did not initialize Manager");
+        }
+        return personListManager;
+    }
 
     public PersonListManager(Context context) {
         this.context = context;
@@ -35,7 +55,7 @@ public class PersonListManager {
     }
 
     static public personList personListFromString(String personListData) throws IOException, ClassNotFoundException {
-        ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(personListData, Base64.DEFAULT);
+        ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(personListData, Base64.DEFAULT));
         ObjectInputStream oi = new ObjectInputStream(bi);
         return (personList) oi.readObject();
 

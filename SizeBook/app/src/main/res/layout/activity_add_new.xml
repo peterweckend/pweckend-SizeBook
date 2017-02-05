@@ -24,7 +24,7 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/name_field_addnew"
-            android:hint="Name" />
+            android:hint="Name (Required)" />
 
         <EditText
             android:layout_width="match_parent"
@@ -88,15 +88,16 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/comment_field_addnew"
-            android:layout_weight="0.87"
+            android:layout_weight="0.92"
             android:hint="Comments" />
 
         <Button
-            android:text="Submit"
+            android:text="Create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/submit_button_addnew"
             android:onClick="addPersonAction" />
 
     </LinearLayout>
+
 </RelativeLayout>

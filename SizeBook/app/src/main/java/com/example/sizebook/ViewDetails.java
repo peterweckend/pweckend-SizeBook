@@ -20,6 +20,7 @@ public class ViewDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_details);
+        PersonListManager.initManager(this.getApplicationContext());
 
 
         personList = (ArrayList<Person>) getIntent().getSerializableExtra("personList");

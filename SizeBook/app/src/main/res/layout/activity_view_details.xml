@@ -18,96 +18,207 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/name_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp"
-            android:text="Name" />
+            android:weightSum="1">
 
-        <TextView
-            android:text="Date"
+            <TextView
+                android:text="Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:layout_weight="1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp"
+                android:text="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/date_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Neck"
+            <TextView
+                android:text="Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Date"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/neck_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Bust"
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Neck"
+                android:layout_width="235dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/neck_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bust_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Chest"
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Bust"
+                android:layout_width="234dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/bust_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chest_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Waist"
+            <TextView
+                android:text="Chest"
+                android:layout_width="237dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/chest_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/waist_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Hip"
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Waist"
+                android:layout_width="239dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/waist_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/hip_field_viewdetail"
-            android:textSize="24sp"
-            android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="Inseam"
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Hip"
+                android:layout_width="241dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/hip_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/inseam_field_viewdetail"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Inseam"
+                android:layout_width="247dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/inseam_field_viewdetail"
+                android:textSize="24sp"
+                android:lineSpacingExtra="8sp"
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                android:layout_weight="1" />
+
+            <TextView
+            android:text="Comment"
+            android:layout_width="237dp"
+            android:layout_height="119dp"
+            android:id="@+id/comment_field_viewdetail"
             android:textSize="24sp"
             android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp" />
-
-        <TextView
-        android:text="Comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/comment_field_viewdetail"
-        android:textSize="24sp"
-        android:lineSpacingExtra="8sp"
-            android:elevation="@dimen/activity_vertical_margin"
-            android:paddingBottom="10dp"
-            android:layout_weight="1.01" />
+                android:elevation="@dimen/activity_vertical_margin"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
 
         <Button
             android:text="Edit"

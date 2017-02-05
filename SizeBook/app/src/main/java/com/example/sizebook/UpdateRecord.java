@@ -18,6 +18,7 @@ public class UpdateRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_record);
+        PersonListManager.initManager(this.getApplicationContext());
         personu = (Person) getIntent().getSerializableExtra("person");
 
         TextView nametext = (TextView) findViewById(R.id.name_field_updaterecord);

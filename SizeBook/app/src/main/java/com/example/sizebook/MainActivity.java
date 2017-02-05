@@ -23,12 +23,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PersonListManager.initManager(this.getApplicationContext());
 
         ListView listView = (ListView) findViewById(R.id.person_listview_main);
         Collection<Person> persons = PersonListController.getPersonList().getPersons();
         final ArrayList<Person> list = new ArrayList<Person>(persons);
         final ArrayAdapter<Person> personAdapter = new ArrayAdapter<Person>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(personAdapter);
+        personCount();
 
         // added a change observer
         PersonListController.getPersonList().addListener(new Listener() {

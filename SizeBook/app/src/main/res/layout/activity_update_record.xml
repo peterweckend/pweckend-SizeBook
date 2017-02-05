@@ -29,6 +29,14 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/date_field_updaterecord"
+            android:text="Date" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/neck_field_updaterecord"
@@ -89,10 +97,5 @@
             android:layout_height="wrap_content"
             android:id="@+id/update_button_updaterecord" />
 
-        <Button
-            android:text="Delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/delete_button_updaterecord" />
     </LinearLayout>
 </RelativeLayout>

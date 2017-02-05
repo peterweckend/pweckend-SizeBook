@@ -107,19 +107,13 @@
         android:lineSpacingExtra="8sp"
             android:elevation="@dimen/activity_vertical_margin"
             android:paddingBottom="10dp"
-            android:layout_weight="1.22" />
+            android:layout_weight="1.01" />
 
         <Button
             android:text="Edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edit_button_viewdetail" />
-
-        <Button
-            android:text="Delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/delete_button_viewdetail" />
 
     </LinearLayout>
 </RelativeLayout>

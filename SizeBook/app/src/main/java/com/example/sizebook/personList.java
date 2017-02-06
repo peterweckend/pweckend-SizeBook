@@ -66,6 +66,12 @@ public class personList implements Serializable {
 
     }
 
+    public void removePerson(Person person) {
+        plist.remove(person);
+        notifyListeners();
+
+    }
+
     private void notifyListeners() {
         for (Listener listener : getListeners()) {
             listener.update();
@@ -73,11 +79,6 @@ public class personList implements Serializable {
     }
 
 
-    public void removePerson(Person person) {
-        plist.remove(person);
-        notifyListeners();
-
-    }
 
     // not needed
     public static boolean contains(Person testPerson){

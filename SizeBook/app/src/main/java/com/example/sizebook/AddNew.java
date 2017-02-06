@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddNew extends AppCompatActivity {
@@ -39,15 +41,28 @@ public class AddNew extends AppCompatActivity {
 
     public void addPersonAction(View v){
 
-//        int dateval;
+//        Date dateval;
 //        EditText values = (EditText) findViewById(R.id.date_field_addnew);
 //        if (values.getText().toString().trim().length() == 0){
-//            dateval = 10;
+//            dateval = new Date();
 //        }
 //        else{
 //            dateval = Integer.parseInt(values.getText().toString());
 //        }
 
+        Date date = new Date();
+        EditText enterdate = (EditText) findViewById(R.id.date_field_addnew);
+        if (enterdate.getText().toString().trim().length() == 0) {
+
+        } else {
+            String enterdate_string = enterdate.getText().toString();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                date = format.parse(enterdate_string);
+            } catch(ParseException e) {
+                e.printStackTrace();
+            }
+        }
 
         float neck;
         EditText values = (EditText) findViewById(R.id.neck_field_addnew);
@@ -56,6 +71,7 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             neck = Float.valueOf(values.getText().toString());
+            neck = (float) (Math.round(neck * 2) / 2.0);
         }
 
 
@@ -66,6 +82,7 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             bust = Float.valueOf(values2.getText().toString());
+            bust = (float) (Math.round(bust * 2) / 2.0);
         }
 
 
@@ -76,6 +93,7 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             chest = Float.valueOf(values3.getText().toString());
+            chest = (float) (Math.round(chest * 2) / 2.0);
         }
 
 
@@ -86,6 +104,7 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             waist = Float.valueOf(values4.getText().toString());
+            waist = (float) (Math.round(waist * 2) / 2.0);
         }
 
 
@@ -96,6 +115,7 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             hip = Float.valueOf(values5.getText().toString());
+            hip = (float) (Math.round(hip * 2) / 2.0);
         }
 
 
@@ -106,13 +126,14 @@ public class AddNew extends AppCompatActivity {
         }
         else{
             inseam = Float.valueOf(values6.getText().toString());
+            inseam = (float) (Math.round(inseam * 2) / 2.0);
         }
 
 
         String comments;
         EditText values7 = (EditText) findViewById(R.id.comment_field_addnew);
         if (values7.getText().toString().trim().length() == 0){
-            comments = "defaultcomment";
+            comments = "";
         }
         else{
             comments = values7.getText().toString();
@@ -132,7 +153,7 @@ public class AddNew extends AppCompatActivity {
         else {
             PersonListController pt = new PersonListController();
 
-            pt.addPerson(new Person(textView.getText().toString(), neck, bust, chest, waist, hip, inseam, comments));
+            pt.addPerson(new Person(textView.getText().toString(), date, neck, bust, chest, waist, hip, inseam, comments));
             Toast.makeText(this, "adding a student", Toast.LENGTH_SHORT).show();
 
             //        Intent intent = new Intent(AddNew.this, MainActivity.class);

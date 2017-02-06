@@ -9,10 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class UpdateRecord extends AppCompatActivity {
     private Person personu;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +24,20 @@ public class UpdateRecord extends AppCompatActivity {
         setContentView(R.layout.activity_update_record);
         PersonListManager.initManager(this.getApplicationContext());
         personu = (Person) getIntent().getSerializableExtra("person");
+        index = getIntent().getIntExtra("index", 0);
 
         TextView nametext = (TextView) findViewById(R.id.name_field_updaterecord);
         nametext.setText(personu.getName());
 
+        Date date = personu.getDate();
         TextView datetext = (TextView) findViewById(R.id.date_field_updaterecord);
-        //datetext.setText(convertStringToDate(person.getDate()));
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            date = format.parse(datetext.getText().toString());
+        } catch(ParseException e) {
+            e.printStackTrace();
+        }
+        datetext.setText(format.format(date));
 
         TextView necktext = (TextView) findViewById(R.id.neck_field_updaterecord);
         necktext.setText(personu.getNeck().toString());
@@ -55,37 +67,57 @@ public class UpdateRecord extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "record updated", Toast.LENGTH_SHORT).show();
 
                 EditText values = (EditText) findViewById(R.id.name_field_updaterecord);
-                personu.setName(values.toString());
+                String name = values.getText().toString();
 
-//                EditText values2 = (EditText) findViewById(R.id.date_field_updaterecord);
-//                personu.setDate(values.toString());
+
+                EditText values2 = (EditText) findViewById(R.id.date_field_updaterecord);
+                //personu.setDate(values2.getText().toString());
+
+
+                Date date = new Date();
+                //EditText enterdate = (EditText) findViewById(R.id.date_field_addnew);
+
+                String enterdate_string = values2.getText().toString();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    date = format.parse(enterdate_string);
+                } catch(ParseException e) {
+                    e.printStackTrace();
+                }
+
 
                 EditText values3 = (EditText) findViewById(R.id.neck_field_updaterecord);
-                personu.setNeck(Float.valueOf(values.toString()));
+                float neck = Float.valueOf(values3.getText().toString());
+                neck = (float) (Math.round(neck * 2) / 2.0);
 
                 EditText values4 = (EditText) findViewById(R.id.bust_field_updaterecord);
-                personu.setBust(Float.valueOf(values.toString()));
+                float bust = Float.valueOf(values4.getText().toString());
+                bust = (float) (Math.round(bust * 2) / 2.0);
 
                 EditText values5 = (EditText) findViewById(R.id.chest_field_updaterecord);
-                personu.setChest(Float.valueOf(values.toString()));
+                float chest = Float.valueOf(values5.getText().toString());
+                chest = (float) (Math.round(chest * 2) / 2.0);
 
                 EditText values6 = (EditText) findViewById(R.id.waist_field_updaterecord);
-                personu.setWaist(Float.valueOf(values.toString()));
+                float waist = Float.valueOf(values6.getText().toString());
+                waist = (float) (Math.round(waist * 2) / 2.0);
 
                 EditText values7 = (EditText) findViewById(R.id.hip_field_updaterecord);
-                personu.setHip(Float.valueOf(values.toString()));
+                float hip = Float.valueOf(values7.getText().toString());
+                hip = (float) (Math.round(hip * 2) / 2.0);
 
                 EditText values8 = (EditText) findViewById(R.id.inseam_field_updaterecord);
-                personu.setInseam(Float.valueOf(values.toString()));
+                float inseam = Float.valueOf(values8.getText().toString());
+                inseam = (float) (Math.round(inseam * 2) / 2.0);
 
                 EditText values9 = (EditText) findViewById(R.id.comment_field_updaterecord);
-                personu.setComment(values.toString());
+                String comment = values9.getText().toString();
 
+                PersonListController updatept = new PersonListController();
+                updatept.updatePerson(index, name, date, neck, bust, chest, waist,hip,inseam, comment);
 
-
-
-
-                finish();
+                Intent intent = new Intent(UpdateRecord.this, MainActivity.class);
+                startActivity(intent);
             }
 
 

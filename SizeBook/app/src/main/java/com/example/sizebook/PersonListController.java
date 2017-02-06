@@ -1,6 +1,9 @@
 package com.example.sizebook;
 
+import android.widget.EditText;
+
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by PeterWeckend on 2017-02-04.
@@ -47,7 +50,22 @@ public class PersonListController {
         getPersonList().addPerson(person);
     }
 
-//    public void getCount(){
-//        getPersonList().getPersonCount();
-//    }
+    public void updatePerson(int index, String name, Date date, float neck, float bust, float chest, float waist, float hip, float inseam, String comment) {
+        Person person = findPerson(index);
+
+        person.setName(name);
+        person.setDate(date);
+        person.setNeck(neck);
+        person.setBust(bust);
+        person.setChest(chest);
+        person.setWaist(waist);
+        person.setHip(hip);
+        person.setInseam(inseam);
+        person.setComment(comment);
+
+    }
+
+    public Person findPerson(int index) {
+        return getPersonList().getPerson(index);
+    }
 }

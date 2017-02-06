@@ -38,6 +38,10 @@ public class personList implements Serializable {
         return plist;
     }
 
+    public Person getPerson(int index){
+        return plist.get(index);
+    }
+
     public void addPerson(Person person) {
         plist.add(person);
         notifyListeners();

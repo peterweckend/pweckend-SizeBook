@@ -26,9 +26,9 @@ public class Person implements Serializable{
         //this.date = new Date();
     }
 
-    public Person(String name, Float neck, Float bust, Float chest, Float waist, Float hip, Float inseam, String comment) {
+    public Person(String name, Date date, Float neck, Float bust, Float chest, Float waist, Float hip, Float inseam, String comment) {
         this.name = name;
-        //this.date = date;
+        this.date = date;
         this.neck = neck;
         this.bust = bust;
         this.chest = chest;

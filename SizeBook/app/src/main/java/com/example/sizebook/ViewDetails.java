@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,8 +31,17 @@ public class ViewDetails extends AppCompatActivity {
         TextView nametext = (TextView) findViewById(R.id.name_field_viewdetail);
         nametext.setText(person.getName());
 
+
+        Date date = person.getDate();
         TextView datetext = (TextView) findViewById(R.id.date_field_viewdetail);
-        //datetext.setText(convertStringToDate(person.getDate()));
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            date = format.parse(datetext.getText().toString());
+        } catch(ParseException e) {
+            e.printStackTrace();
+        }
+        datetext.setText(format.format(date));
+
 
         TextView necktext = (TextView) findViewById(R.id.neck_field_viewdetail);
         necktext.setText(person.getNeck().toString());
@@ -61,6 +71,7 @@ public class ViewDetails extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "edit record", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ViewDetails.this, UpdateRecord.class);
                 intent.putExtra("person", person);
+                intent.putExtra("index", index);
                 startActivity(intent);
 
             }
@@ -71,18 +82,18 @@ public class ViewDetails extends AppCompatActivity {
     }
 
 
-    public String convertStringToDate(Date indate)
-    {
-        String dateString = null;
-        SimpleDateFormat sdfr = new SimpleDateFormat("dd/MMM/yyyy");
-   /*you can also use DateFormat reference instead of SimpleDateFormat
-    * like this: DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
-    */
-        try{
-            dateString = sdfr.format(indate);
-        }catch (Exception ex ){
-            System.out.println(ex);
-        }
-        return dateString;
-    }
+//    public String convertStringToDate(Date indate)
+//    {
+//        String dateString = null;
+//        SimpleDateFormat sdfr = new SimpleDateFormat("dd/MMM/yyyy");
+//   /*you can also use DateFormat reference instead of SimpleDateFormat
+//    * like this: DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+//    */
+//        try{
+//            dateString = sdfr.format(indate);
+//        }catch (Exception ex ){
+//            System.out.println(ex);
+//        }
+//        return dateString;
+//    }
 }

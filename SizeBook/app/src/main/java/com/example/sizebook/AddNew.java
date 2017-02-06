@@ -1,3 +1,18 @@
+/*
+ * AddNew
+ *
+ * Activity that lets user add a new user to their Sizebook. Name is required, and you
+ * will be unable to submit without a valid name. All fields must have valid characters.
+ * Ex: you cannot type in letters while filling out the Neck field, and no special characters
+ * or letters can be entered in the date field.
+ * Additionally, all number fields (neck, bust, chest, etc.) will round to the nearest half.
+ * Ex: 8.566 will round to 8.5 and 3.98 will round to 4.
+ *
+ * Feb 5 2017
+ *
+ * Copyright notice
+ */
+
 package com.example.sizebook;
 
 import android.content.Intent;

@@ -15,6 +15,8 @@ CMPUT 301 Assignment 1 - a simple, intuitive, mobile app to keep track of people
 >edit the fields of a record, 
 >delete an existing record.
 
+>BasicStoryboard.pdf was used to originally plan out the layout for SizeBook
+
 ---
 
 Collaborated with Brandon Best (bbest).

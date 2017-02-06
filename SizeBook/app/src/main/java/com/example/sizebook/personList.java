@@ -26,19 +26,19 @@ import java.util.Collection;
  * Created by PeterWeckend on 2017-01-28.
  */
 
+// personList class, more details in above comments
 public class personList implements Serializable {
 
-    // missing serialVersionUID, doesn't show up
     protected ArrayList<Person> plist = null;
     protected transient ArrayList<Listener> listeners = null;
 
+    // array of Persons
     public personList() {
         plist = new ArrayList<Person>();
         listeners = new ArrayList<Listener>();
-
-
     }
 
+    // returns all listeners
     private ArrayList<Listener> getListeners() {
         if (listeners == null){
             listeners = new ArrayList<Listener>();
@@ -55,6 +55,7 @@ public class personList implements Serializable {
         return plist;
     }
 
+    // used for UpdateRecord, retrieves person at an index
     public Person getPerson(int index){
         return plist.get(index);
     }
@@ -71,11 +72,6 @@ public class personList implements Serializable {
         }
     }
 
-//    private void readObject(java.io.ObjectInputStream in)
-//            throws IOException, ClassNotFoundException {
-//        //super.readObject(in);
-//        listeners = new ArrayList<Listener>();
-//    }
 
     public void removePerson(Person person) {
         plist.remove(person);
@@ -83,7 +79,7 @@ public class personList implements Serializable {
 
     }
 
-    // probably not needed
+    // not needed
     public static boolean contains(Person testPerson){
         return personList.contains(testPerson);
     }
@@ -96,7 +92,6 @@ public class personList implements Serializable {
         getListeners().remove(l);
     }
 
-    // many missing methods from video not added; used for testing?
 
 
 }

@@ -33,7 +33,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -46,36 +45,12 @@ public class AddNew extends AppCompatActivity {
         setContentView(R.layout.activity_add_new);
         PersonListManager.initManager(this.getApplicationContext());
 
-
-
-        //Button submit_addnew = (Button) findViewById(R.id.submit_button_addnew);
-
-//        submit_addnew.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(), "submit", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(AddNew.this, MainActivity.class);
-//                startActivity(intent);
-//            }
-//
-//        });
-
-
-
-
     }
 
+    // when add button is clicked, addPersonAction is called
     public void addPersonAction(View v){
 
-//        Date dateval;
-//        EditText values = (EditText) findViewById(R.id.date_field_addnew);
-//        if (values.getText().toString().trim().length() == 0){
-//            dateval = new Date();
-//        }
-//        else{
-//            dateval = Integer.parseInt(values.getText().toString());
-//        }
-
+        // if date not entered, get current date
         Date date = new Date();
         EditText enterdate = (EditText) findViewById(R.id.date_field_addnew);
         if (enterdate.getText().toString().trim().length() == 0) {
@@ -90,6 +65,7 @@ public class AddNew extends AppCompatActivity {
             }
         }
 
+        // for all other values, if not entered, put 0 or "" by default
         float neck;
         EditText values = (EditText) findViewById(R.id.neck_field_addnew);
         if (values.getText().toString().trim().length() == 0){
@@ -167,11 +143,9 @@ public class AddNew extends AppCompatActivity {
 
 
 
-
-
-
         EditText textView = (EditText) findViewById(R.id.name_field_addnew);
 
+        // make sure the name was entered
         if (textView.getText().toString().trim().length() == 0){
             Toast.makeText(this, "Name Required.", Toast.LENGTH_SHORT).show();
             return;
@@ -182,8 +156,6 @@ public class AddNew extends AppCompatActivity {
             pt.addPerson(new Person(textView.getText().toString(), date, neck, bust, chest, waist, hip, inseam, comments));
             Toast.makeText(this, "Person Added.", Toast.LENGTH_SHORT).show();
 
-            //        Intent intent = new Intent(AddNew.this, MainActivity.class);
-            //        startActivity(intent);
             finish();
         }
     }

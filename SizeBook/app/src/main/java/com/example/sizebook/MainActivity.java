@@ -48,26 +48,28 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         PersonListManager.initManager(this.getApplicationContext());
 
+        // grabs array for home screen
         ListView listView = (ListView) findViewById(R.id.person_listview_main);
         Collection<Person> persons = PersonListController.getPersonList().getPersons();
         final ArrayList<Person> list = new ArrayList<Person>(persons);
         final ArrayAdapter<Person> personAdapter = new ArrayAdapter<Person>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(personAdapter);
-        personCount();
+        personCount(); // update number of people in arraylist
 
-        // added a change observer
+        // a change observer
         PersonListController.getPersonList().addListener(new Listener() {
             @Override
             public void update() {
                 list.clear();
                 Collection<Person> persons = PersonListController.getPersonList().getPersons();
                 list.addAll(persons);
-                personCount();
+                personCount(); // update number of people in arraylist
                 personAdapter.notifyDataSetChanged();
             }
 
         });
 
+        // if a person is long clicked, show option to delete
         listView.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -76,6 +78,7 @@ public class MainActivity extends Activity {
                 adb.setMessage("Delete "+list.get(position).toString()+"?");
                 adb.setCancelable(true);
                 final int finalPosition = position;
+                // if they delete
                 adb.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -83,6 +86,7 @@ public class MainActivity extends Activity {
                         PersonListController.getPersonList().removePerson(person);
                     }
                 });
+                // if they choose not to delete
                 adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -94,7 +98,7 @@ public class MainActivity extends Activity {
         });
 
 
-
+        // called when user tries to add new and presses AddNew button
         Button addnew_main = (Button) findViewById(R.id.addnew_button_main);
         addnew_main.setOnClickListener(new View.OnClickListener() {
 
@@ -108,8 +112,8 @@ public class MainActivity extends Activity {
 
         });
 
-        // no adapterview in tutorials
-        // +list.get(position).toString()
+
+        // normal tap on listview item, views more details
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view,
@@ -117,27 +121,14 @@ public class MainActivity extends Activity {
                 //Toast.makeText(MainActivity.this, "short click"+list.get(position).toString(), Toast.LENGTH_SHORT).show();
 
                 Intent intent2 = new Intent(MainActivity.this, ViewDetails.class);
-                intent2.putExtra("personList", list);
-                intent2.putExtra("index", position);
+                intent2.putExtra("personList", list);   // send personList
+                intent2.putExtra("index", position);    // send index of tapped Person
                 startActivity(intent2);
             }
         });
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        ListView listView = (ListView) findViewById(R.id.person_listview_main);
-//        Collection<Person> persons = PersonListController.getPersonList().getPersons();
-//        final ArrayList list = new ArrayList<Person>(persons);
-//        ArrayAdapter<Person> personAdapter = new ArrayAdapter<Person>(this, android.R.layout.simple_list_item_1, list);
-//        listView.setAdapter(personAdapter);
-//        personCount();
-//
-//    }
-
-
+    // retrieves the number of Persons on the ArrayList
     public void personCount() {
         PersonListController pc = new PersonListController();
         int size = pc.getPersonList().getPersonCount();

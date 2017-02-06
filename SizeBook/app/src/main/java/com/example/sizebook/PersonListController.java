@@ -7,7 +7,7 @@
  *
  * Feb 4 2017
  *
- * The design of this class was built almost exclusively with the help of online tutorials and
+ * The design of this class was built with the help of concepts from online tutorials and
  * the Student Picker videos' guidance. Adding, finding, and updating person was based off
  * similar functions for personList, but applied to an individual person.
  *
@@ -17,7 +17,6 @@
 package com.example.sizebook;
 
 import android.widget.EditText;
-
 import java.io.IOException;
 import java.util.Date;
 
@@ -25,6 +24,7 @@ import java.util.Date;
  * Created by PeterWeckend on 2017-02-04.
  */
 
+// controller for personList, more details in above comments
 public class PersonListController {
 
     // lazy singleton
@@ -61,11 +61,12 @@ public class PersonListController {
         }
     }
 
-
+    // add person to personList
     public void addPerson(Person person){
         getPersonList().addPerson(person);
     }
 
+    // called when you want to update a person, retrieves person needed and updates their attrs
     public void updatePerson(int index, String name, Date date, float neck, float bust, float chest, float waist, float hip, float inseam, String comment) {
         Person person = findPerson(index);
 
@@ -80,7 +81,7 @@ public class PersonListController {
         person.setComment(comment);
 
     }
-
+    // returns person in personList at index
     public Person findPerson(int index) {
         return getPersonList().getPerson(index);
     }

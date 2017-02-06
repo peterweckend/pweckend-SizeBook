@@ -26,9 +26,10 @@ import java.util.Date;
  * Created by PeterWeckend on 2017-01-28.
  */
 
+// Person Class, more details in above comments
 public class Person implements Serializable{
 
-    // no id generated here, didn't show up
+    // all required person attributes
     private String name;
     private Date date;
     private Float neck;
@@ -39,12 +40,12 @@ public class Person implements Serializable{
     private Float inseam;
     private String comment;
 
-
+    // construct with just name; not really used
     public Person(String name) {
         this.name = name;
-        //this.date = new Date();
     }
 
+    // construct entire person, called with AddNew
     public Person(String name, Date date, Float neck, Float bust, Float chest, Float waist, Float hip, Float inseam, String comment) {
         this.name = name;
         this.date = date;
@@ -57,6 +58,7 @@ public class Person implements Serializable{
         this.comment = comment;
     }
 
+    // all attribute getters and setters
     //@Override
     public String toString(){
         return getName();

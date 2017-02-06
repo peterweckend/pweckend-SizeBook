@@ -27,12 +27,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+// Updates a Person's record, more details in above comments
 public class UpdateRecord extends AppCompatActivity {
     private Person personu;
     private int index;
@@ -42,20 +42,25 @@ public class UpdateRecord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_record);
         PersonListManager.initManager(this.getApplicationContext());
+        // retrive what person we want to update
         personu = (Person) getIntent().getSerializableExtra("person");
         index = getIntent().getIntExtra("index", 0);
 
+        // set all fields to show the attribute values of the correct Person
         TextView nametext = (TextView) findViewById(R.id.name_field_updaterecord);
         nametext.setText(personu.getName());
 
         Date date = personu.getDate();
+        // retrieve date
         TextView datetext = (TextView) findViewById(R.id.date_field_updaterecord);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
+            // put date into proper yyyy-mm-dd format
             date = format.parse(datetext.getText().toString());
         } catch(ParseException e) {
             e.printStackTrace();
         }
+        // set date field to date
         datetext.setText(format.format(date));
 
         TextView necktext = (TextView) findViewById(R.id.neck_field_updaterecord);
@@ -79,7 +84,7 @@ public class UpdateRecord extends AppCompatActivity {
         TextView commenttext = (TextView) findViewById(R.id.comment_field_updaterecord);
         commenttext.setText(personu.getComment().toString());
 
-
+        // when the update button is pressed, this occurs
         Button edit_viewdetail = (Button) findViewById(R.id.update_button_updaterecord);
         edit_viewdetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -90,12 +95,9 @@ public class UpdateRecord extends AppCompatActivity {
 
 
                 EditText values2 = (EditText) findViewById(R.id.date_field_updaterecord);
-                //personu.setDate(values2.getText().toString());
-
 
                 Date date = new Date();
-                //EditText enterdate = (EditText) findViewById(R.id.date_field_addnew);
-
+                // convert string in certain format to proper date object
                 String enterdate_string = values2.getText().toString();
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
@@ -104,10 +106,10 @@ public class UpdateRecord extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-
+                // set all values to the edited versions
                 EditText values3 = (EditText) findViewById(R.id.neck_field_updaterecord);
                 float neck = Float.valueOf(values3.getText().toString());
-                neck = (float) (Math.round(neck * 2) / 2.0);
+                neck = (float) (Math.round(neck * 2) / 2.0);  // round to nearest 1/2
 
                 EditText values4 = (EditText) findViewById(R.id.bust_field_updaterecord);
                 float bust = Float.valueOf(values4.getText().toString());
@@ -132,6 +134,7 @@ public class UpdateRecord extends AppCompatActivity {
                 EditText values9 = (EditText) findViewById(R.id.comment_field_updaterecord);
                 String comment = values9.getText().toString();
 
+                // update person (in PersonListController) to new values
                 PersonListController updatept = new PersonListController();
                 updatept.updatePerson(index, name, date, neck, bust, chest, waist,hip,inseam, comment);
 

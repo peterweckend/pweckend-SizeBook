@@ -6,7 +6,7 @@
  *
  * Feb 5 2017
  *
- * The design of this class was built almost exclusively with the help of online tutorials and
+ * The design of this class was built using concepts from online tutorials and
  * the Student Picker videos' guidance.
  *
  * There are no outstanding issues with this page that I know of.
@@ -17,7 +17,6 @@ package com.example.sizebook;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -46,7 +45,7 @@ public class PersonListManager {
         }
     }
 
-
+    // returns manager
     public static PersonListManager getManager() {
         if (personListManager == null) {
             throw new RuntimeException("did not initialize Manager");
@@ -58,6 +57,7 @@ public class PersonListManager {
         this.context = context;
     }
 
+    // retrieves personList from storing; SharedPreferences method
     public personList loadPersonList() throws IOException, ClassNotFoundException {
         SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
         String personListData = settings.getString(plKey, "");
@@ -68,6 +68,16 @@ public class PersonListManager {
         }
     }
 
+    // stores personList into storage; SharedPreferences method
+    public void savePersonList(personList pl) throws IOException {
+        SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(plKey, personListToString(pl));
+        editor.commit();
+    }
+
+
+    // converts to a personList object from string
     static public personList personListFromString(String personListData) throws IOException, ClassNotFoundException {
         ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(personListData, Base64.DEFAULT));
         ObjectInputStream oi = new ObjectInputStream(bi);
@@ -75,6 +85,7 @@ public class PersonListManager {
 
     }
 
+    // converts from a personList object to a string
     static public String personListToString(personList pl) throws IOException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         ObjectOutputStream oo = new ObjectOutputStream(bo);
@@ -84,12 +95,7 @@ public class PersonListManager {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
-    public void savePersonList(personList pl) throws IOException {
-        SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(plKey, personListToString(pl));
-        editor.commit();
-    }
+
 
 
 }

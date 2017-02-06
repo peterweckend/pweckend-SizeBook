@@ -25,12 +25,12 @@ _https://www.youtube.com/watch?v=5PPD0ncJU1g&list=PL240uJOh_Vb4PtMZ0f7N8ACYkCLv0
 
 _http://stackoverflow.com/questions/23449662/java-round-to-nearest-5_
 
-_beginnersbook.com/2013/05/java-date-string-conversion/_
+_http://beginnersbook.com/2013/05/java-date-string-conversion/_
 
-_stackoverflow.com/questions/5683728/convert-java-util-date-to-string_
+_http://stackoverflow.com/questions/5683728/convert-java-util-date-to-string_
 
-_stackoverflow.com/questions/15658687/how-to-use-onresume_
+_http://stackoverflow.com/questions/15658687/how-to-use-onresume_
 
-_stackoverflow.com/questions/5000787/_
+_http://stackoverflow.com/questions/5000787/_
 
-_developer.android.com/guide/index.html_
+_http://developer.android.com/guide/index.html_

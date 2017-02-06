@@ -1,3 +1,20 @@
+/*
+ * personList
+ *
+ * personList is a collection of Person objects. personList has methods to let one get
+ * the size of the list, fetch specific Persons in the list, add or remove Persons from
+ * the list, and finally contains methods for SizeBook Listeners. Listeners can be
+ * retrieved, added, removed, and notified.
+ *
+ * Feb 3 2017
+ *
+ * All the basic app tutorials and examples I looked had a class for the main object's list,
+ * and this class has methods and functionality that would not be possible (or useful) if they
+ * were put inside Person.java.
+ *
+ * There are no outstanding issues with this page that I know of.
+ */
+
 package com.example.sizebook;
 
 import java.io.IOException;

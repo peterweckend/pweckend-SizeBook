@@ -1,3 +1,21 @@
+/*
+ * ViewDetails
+ *
+ * ViewDetails enables users to view the information of Persons. The object information is pulled
+ * from MainActivity, and the index of the selected ListView item is passed on to ViewDetails,
+ * which is used to find the selected object. The Person's attribute
+ * values are displayed as textviews with their values. At the bottom of the screen is a button
+ * to edit the selected Person.
+ *
+ * Feb 2 2017
+ *
+ * Like the other activities, the one button is centered on the bottom. I added in field names
+ * for each of the values so the user could tell them apart and know which field corresponds to
+ * which value.
+ *
+ * There are no issues with this class that I know of.
+ */
+
 package com.example.sizebook;
 
 import android.content.Intent;
@@ -68,7 +86,7 @@ public class ViewDetails extends AppCompatActivity {
         Button edit_viewdetail = (Button) findViewById(R.id.edit_button_viewdetail);
         edit_viewdetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "edit record", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "edit record", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ViewDetails.this, UpdateRecord.class);
                 intent.putExtra("person", person);
                 intent.putExtra("index", index);

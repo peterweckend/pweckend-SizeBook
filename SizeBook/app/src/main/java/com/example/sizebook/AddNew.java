@@ -7,10 +7,21 @@
  * or letters can be entered in the date field.
  * Additionally, all number fields (neck, bust, chest, etc.) will round to the nearest half.
  * Ex: 8.566 will round to 8.5 and 3.98 will round to 4.
+ * Values not filled out by the user will be automatically created by the app. The date will
+ * be replaced with the current date if not filled out, comments will be blank, and the
+ * measurements will be 0.
  *
- * Feb 5 2017
+ * Feb 3 2017
  *
- * Copyright notice
+ * I tried to pick a clean, simple style for adding users. Adding field hints helped users
+ * identify which areas to fill out for which information, and a create button on the bottom
+ * seemed to be the most effective solution. I tried to emulate Add New activities I've seen
+ * in other apps I've used.
+ *
+ * There are no outstanding issues with this class that I know of. Previously there were
+ * issues updating MainActivity after an entry was added but this was solved with Listeners.
+ * There were also issues limiting input to the required type but I changed the text fields to
+ * only accept the right types.
  */
 
 package com.example.sizebook;
@@ -162,14 +173,14 @@ public class AddNew extends AppCompatActivity {
         EditText textView = (EditText) findViewById(R.id.name_field_addnew);
 
         if (textView.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "Name required.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Name Required.", Toast.LENGTH_SHORT).show();
             return;
         }
         else {
             PersonListController pt = new PersonListController();
 
             pt.addPerson(new Person(textView.getText().toString(), date, neck, bust, chest, waist, hip, inseam, comments));
-            Toast.makeText(this, "adding a student", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Person Added.", Toast.LENGTH_SHORT).show();
 
             //        Intent intent = new Intent(AddNew.this, MainActivity.class);
             //        startActivity(intent);

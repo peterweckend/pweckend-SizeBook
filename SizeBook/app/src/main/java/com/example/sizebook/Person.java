@@ -1,3 +1,22 @@
+/*
+ * Person
+ *
+ * Person class that represents an individual whose sizes can be stored in the app. A person
+ * has a name, a date for their measurements, a comment, and all required measurement fields
+ * (ex: neck size, bust size, etc.). I have two constructors, one that only needs the name
+ * (this isn't used), and one with a value for every field (values are automatically created
+ * for fields left blank in the AddNew activity). ToString() was created along with the
+ * Student Picker tutorial and the rest of the methods are just getters/setters for all
+ * variables.
+ *
+ * Feb 3 2017
+ *
+ * I put all the attributes in this class because they would have been much to basic to be in
+ * separate classes.
+ *
+ * There are no outstanding issues with this class that I know of.
+ */
+
 package com.example.sizebook;
 
 import java.io.Serializable;

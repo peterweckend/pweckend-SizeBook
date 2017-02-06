@@ -1,3 +1,17 @@
+/*
+ * PersonListManager
+ *
+ * Manager that enables you to obtain and control various data relating to personList.
+ * Used in this situation mainly to save the SizeBook entries using SharedPreferences.
+ *
+ * Feb 5 2017
+ *
+ * The design of this class was built almost exclusively with the help of online tutorials and
+ * the Student Picker videos' guidance.
+ *
+ * There are no outstanding issues with this page that I know of.
+ */
+
 package com.example.sizebook;
 
 import android.content.Context;

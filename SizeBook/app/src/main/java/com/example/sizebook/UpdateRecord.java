@@ -1,3 +1,22 @@
+/*
+ * UpdateRecord
+ *
+ * UpdateRecord enables users to edit and change existing Persons. The edited object is pulled
+ * from ViewDetails, which sends the index of the object to update. The Person's attribute
+ * values are displayed as an editable form with the values preloaded. Like AddNew, measures
+ * exist to ensure the user enters valid input (ex: only numbers for Neck, Bust, Chest, etc.)
+ * and all numbers are rounded to the nearest 1/2.
+ *
+ *
+ * Feb 2 2017
+ *
+ * Like the other activities, the one button is centered on the bottom. I added in field names
+ * for each of the values so the user could tell them apart and know which field corresponds to
+ * which value. Formatting instructions for date were included.
+ *
+ * There are no issues with this class that I know of.
+ */
+
 package com.example.sizebook;
 
 import android.content.Intent;
@@ -64,7 +83,7 @@ public class UpdateRecord extends AppCompatActivity {
         Button edit_viewdetail = (Button) findViewById(R.id.update_button_updaterecord);
         edit_viewdetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "record updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Record Updated", Toast.LENGTH_SHORT).show();
 
                 EditText values = (EditText) findViewById(R.id.name_field_updaterecord);
                 String name = values.getText().toString();

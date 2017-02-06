@@ -1,3 +1,26 @@
+/*
+ * MainActivity
+ *
+ * MainActivity is the first page the user sees when opening the app. It contains a list view
+ * of all people in the SizeBook, an option to add new entries, and a count of all people.
+ * Users are added to the bottom of the listview when they are created. Tapping on a person's
+ * name will open ViewDetails. Long tapping on a person's name will open a prompt to delete
+ * the person should the user choose. A count in the bottom left hand corner keeps track of
+ * the number of users currently in the system.
+ *
+ * Feb 2 2017
+ *
+ * I wanted to keep a consistent layout throughout the app:
+ * Data in the top area, a button centrally located in the bottom center, and any additional
+ * information on the bottom sides. I didn't want any extra "delete", "edit", or "view details"
+ * buttons next to every name cluttering up the screen, so I used tap and long tap to implement
+ * those instead to keep the design cleaner looking.
+ *
+ * The only outstanding issue for MainActivity is that the "All Entries" title is closer to
+ * the top row than I would like ideally. Editing the xml document to increase the title's
+ * wrapping should fix the problem. Listeners helped update the main activity instantaneously.
+ */
+
 package com.example.sizebook;
 
 import android.app.Activity;
@@ -76,7 +99,7 @@ public class MainActivity extends Activity {
         addnew_main.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "add new", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "add new", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, AddNew.class);
                 startActivity(intent);
 
@@ -91,7 +114,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, "short click"+list.get(position).toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "short click"+list.get(position).toString(), Toast.LENGTH_SHORT).show();
 
                 Intent intent2 = new Intent(MainActivity.this, ViewDetails.class);
                 intent2.putExtra("personList", list);
